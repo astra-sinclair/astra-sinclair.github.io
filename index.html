@@ -48,24 +48,27 @@
       text-shadow: 0 0 15px rgba(137, 194, 255, 0.3);
     }
     a {
-      display: block;
-      background: rgba(255,255,255,0.07);
-      padding: 0.8rem 1.5rem;
-      border-radius: 12px;
+      display: flex;                 /* вместо inline-block */
+      align-items: center;
+      justify-content: center;       /* текст + иконка по центру как единый блок */
+      gap: 10px;                     /* расстояние между иконкой и текстом */
+      width: 320px;                  /* одинаковая ширина кнопок (можно подправить) */
+      margin: 12px auto;             /* равные отступы слева/справа */
+      padding: 12px 20px;            /* симметричные внутренние отступы */
+      background: rgba(255,255,255,0.05);
       color: #89c2ff;
       text-decoration: none;
-      margin: 10px 0;
-      width: 250px;
-      text-align: center;
-      transition: 0.2s;
-      backdrop-filter: blur(4px);
+      border-radius: 12px;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(2px);
+      font-size: 1.05rem;
     }
     a:hover {
       background: rgba(255,255,255,0.15);
       transform: scale(1.03);
     }
     i {
-    margin-right: 8px;
+    margin: 0px;
     }
   </style>
 </head>
