@@ -5,6 +5,9 @@
   <title>A•V Links</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    /* чтобы паддинги не распирали ширину */
+    *, *::before, *::after { box-sizing: border-box; }
+
     body {
       margin: 0;
       height: 100vh;
@@ -23,15 +26,16 @@
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+
     .glass {
       background: rgba(255, 255, 255, 0.08);
       box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
       border: 1px solid rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(12px);
       border-radius: 20px;
-      padding: 2.5em;
+      padding: 28px;
       text-align: center;
-      width: 320px;
+      width: min(92vw, 420px);   /* адаптивная ширина, не вылезает */
       animation: fadeIn 1.5s ease;
     }
 
@@ -39,46 +43,56 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
     h1 {
       font-size: 2rem;
       letter-spacing: 2px;
-      margin-bottom: 1.8em;
+      margin-bottom: 24px;
       text-align: center;
       color: #cfe7ff;
       text-shadow: 0 0 15px rgba(137, 194, 255, 0.3);
     }
-    a {
+
+    /* КНОПКИ: симметрия и центрирование текста */
+    .glass a {
       position: relative;
       display: block;
-      width: 100%;
-      max-width: 360px;         /* ширина «пилюли» */
-      margin: 12px auto;        /* ровно по центру */
-      padding: 12px 56px;       /* ВАЖНО: одинаковые отступы слева/справа! */
-      text-align: center;       /* текст строго по центру кнопки */
+      width: 100%;                /* заполняет панель, но НЕ вылезает */
+      margin: 12px 0;
+      padding: 12px 56px;         /* одинаковые слева/справа */
       background: rgba(255,255,255,0.07);
       color: #9ec7ff;
       text-decoration: none;
       border-radius: 16px;
-      transition: .25s ease;
+      transition: background .25s ease, transform .25s ease, box-shadow .25s ease;
       backdrop-filter: blur(4px);
+      text-align: center;         /* текст реально по центру */
+      font-size: 1.05rem;
     }
-    a:hover {
+
+    .glass a:hover {
       background: rgba(255,255,255,0.14);
-      transform: translateY(-1px);
+      transform: translateY(-1px);          /* без scale — ничего не «распухает» */
       box-shadow: 0 6px 18px rgba(0,0,0,.35);
     }
-    i {
+
+    /* Иконка «живет» в своём слоте слева и не сдвигает текст */
+    .glass a i {
       position: absolute;
-      left: 20px;               /* отступ иконки от левого края */
+      left: 20px;
       top: 50%;
       transform: translateY(-50%);
+      margin: 0;
       font-size: 1.05rem;
       opacity: .9;
-      margin: 0;                /* на всякий случай: без margin */
+      pointer-events: none;       /* кликается вся кнопка, не иконка */
     }
+
+    /* на очень узких экранах чуток ужмём паддинги */
     @media (max-width: 380px) {
-    a { padding: 12px 48px; }
-    i { left: 16px; }
+      .glass { width: 92vw; padding: 22px; }
+      .glass a { padding: 12px 48px; }
+      .glass a i { left: 16px; }
     }
   </style>
 </head>
