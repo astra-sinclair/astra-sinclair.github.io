@@ -2,19 +2,42 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Astra Sinclair — ссылки</title>
+  <title>Astra Sinclair</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
-      background: linear-gradient(135deg, #0b0b0d, #1a1b22);
-      color: #eaeaea;
-      font-family: "Inter", sans-serif;
+      margin: 0;
+      height: 100vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      gap: 1rem;
+      background: linear-gradient(135deg, #0b0b0d, #1a1b22, #171820);
+      background-size: 200% 200%;
+      animation: gradientMove 12s ease infinite;
+      font-family: "Inter", sans-serif;
+      color: #e0e0e0;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 2.5em;
+      text-align: center;
+      width: 320px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     h1 {
       font-size: 1.8rem;
@@ -43,10 +66,9 @@
   </style>
 </head>
 <body>
-  <h1>AV / Astra Sinclair</h1>
-  <p>Музыка, наверное.</p>
-
-  <p>
+  <div class="glass">
+    <h1>AV / Astra Sinclair</h1>
+    
     <a href="https://soundcloud.com/astra_v">
       <i class="fa-brands fa-soundcloud"></i> SoundCloud
     </a>
@@ -54,11 +76,11 @@
       <i class="fa-brands fa-bandcamp"></i>Bandcamp
     </a>
     <a href="https://open.spotify.com/artist/2rPVxFaIUrRdOvMjvfVck7?si=t72jFF0gRtOOSf1JuLkhIg">
-       <i class="fa-brands fa-spotify"></i>Spotify
+      <i class="fa-brands fa-spotify"></i>Spotify
     </a>
     <a rel="me" href="https://mastodon.social/@astraea_av">
-       <i class="fa-brands fa-mastodon"></i>Mastodon
+        <i class="fa-brands fa-mastodon"></i>Mastodon
     </a>
-  </p>
+  </div>
 </body>
 </html>
