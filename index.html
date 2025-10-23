@@ -48,27 +48,37 @@
       text-shadow: 0 0 15px rgba(137, 194, 255, 0.3);
     }
     a {
-      display: flex;                 /* вместо inline-block */
-      align-items: center;
-      justify-content: center;       /* текст + иконка по центру как единый блок */
-      gap: 10px;                     /* расстояние между иконкой и текстом */
-      width: 320px;                  /* одинаковая ширина кнопок (можно подправить) */
-      margin: 12px auto;             /* равные отступы слева/справа */
-      padding: 12px 20px;            /* симметричные внутренние отступы */
-      background: rgba(255,255,255,0.05);
-      color: #89c2ff;
+      position: relative;
+      display: block;
+      width: 100%;
+      max-width: 360px;         /* ширина «пилюли» */
+      margin: 12px auto;        /* ровно по центру */
+      padding: 12px 56px;       /* ВАЖНО: одинаковые отступы слева/справа! */
+      text-align: center;       /* текст строго по центру кнопки */
+      background: rgba(255,255,255,0.07);
+      color: #9ec7ff;
       text-decoration: none;
-      border-radius: 12px;
-      transition: all 0.25s ease;
-      backdrop-filter: blur(2px);
-      font-size: 1.05rem;
+      border-radius: 16px;
+      transition: .25s ease;
+      backdrop-filter: blur(4px);
     }
     a:hover {
-      background: rgba(255,255,255,0.15);
-      transform: scale(1.03);
+      background: rgba(255,255,255,0.14);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(0,0,0,.35);
     }
     i {
-    margin: 0px;
+      position: absolute;
+      left: 20px;               /* отступ иконки от левого края */
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.05rem;
+      opacity: .9;
+      margin: 0;                /* на всякий случай: без margin */
+    }
+    @media (max-width: 380px) {
+    a { padding: 12px 48px; }
+    i { left: 16px; }
     }
   </style>
 </head>
