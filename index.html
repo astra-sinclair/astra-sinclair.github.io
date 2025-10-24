@@ -128,6 +128,19 @@
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    .footer {
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: rgba(180, 200, 255, 0.45);
+      letter-spacing: 1px;
+      font-style: italic;
+      text-align: center;
+      user-select: none;
+      transition: color .3s ease;
+    }
+    .footer:hover {
+      color: rgba(180, 200, 255, 0.7);
+    }
   </style>
 </head>
 <body>
@@ -146,6 +159,7 @@
     <a rel="me" href="https://mastodon.social/@astraea_av">
         <i class="fa-brands fa-mastodon"></i>Mastodon
     </a>
+    <p class="footer">made with noise & heart</p>
   </div>
 </body>
 </html>
